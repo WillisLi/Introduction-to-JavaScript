@@ -58,9 +58,9 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
-  }
+function multiply(a, b){
+  return a * b;
+}
 
 
 
@@ -74,8 +74,8 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
+function dogYears(age){
+    return age * 7;
 }
 
 
@@ -107,9 +107,23 @@ Use the hungryDog function and feeding requirements below to do the following:
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
-  }
+function hungryDog(weight, age){
+    if (age < 1/3) {
+        return 0.10 * weight;
+    } else if (age < 7/12) {
+        return 0.05 * weight;
+    } else if (age < 1) {
+        return 0.04 * weight;
+    } else if (weight <= 5) {
+        return 0.05 * weight;
+    } else if (weight <= 10) {
+        return 0.04 * weight;
+    } else if (weight <= 15) {
+        return 0.03 * weight;
+    } else {
+      return 0.02 * weight;
+    }
+}
 
 
 
@@ -134,8 +148,24 @@ Use the game function below to do the following:
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
+let computer = Math.random();
+
+if (computer <= 1/3) {
+  computer = "Scissors";
+} else if (computer <= 2/3) {
+  computer = "Paper";
+} else {
+  computer = "Rock";
+}
+
 function game(user, computer){
-    /*add your code here*/
+    if (user === "scissors" && computer === "paper" || user === "paper" && computer === "rock" || user === "rock" && computer === "scissors") {
+      return "you win!";
+    } else if (user === "paper" && computer === "scissors" || user === "rock" && computer === "paper" || user === "scissors" && computer === "rock") {
+      return "you lose!";
+    } else {
+      return "it's a tie";
+    }
 }
   
   
@@ -147,12 +177,12 @@ function game(user, computer){
 /*
 Using the miles function below do the following:
   1. Receive a number of kilometers
-  2. Convert the number of kiolmeters received to miles
+  2. Convert the number of kilometers received to miles
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-    /*add your code here*/
+function miles(kilometers){
+    return 0.621371 * kilometers;
   }
 
 
@@ -165,9 +195,9 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
-  }
+function feet(cm){
+    return cm / 30.48;
+}
  
 
 
@@ -181,8 +211,10 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
+function annoyingSong(count){
+    for (let i = count - 1; i > 1; i--) {
+        return `${count} bottles of soda on the wall, ${count} bottles of soda, take one down pass it around ${i} bottles of soda on the wall`;
+    }
   }
 
 
@@ -201,9 +233,19 @@ Using the grade function below do the following:
    below should return 'you got an F'
 */
   
-function grade(/*Your Code here */){
-  /*Your Code here */
+function grade(score){
+  if (score < 60) {
+      return "you got an F";
+  } else if (score < 70) {
+      return "you got a D";
+  } else if (score < 80) {
+      return "you got a C";
+  } else if (score < 90) {
+      return "you got a B";
+  } else {
+    return "you got an A";
   }
+}
   
   
 
@@ -220,8 +262,25 @@ Using the vowelCounter function below do the following:
 */
 
 
-function vowelCounter(/*add your code here*/) {
-    /*add your code here*/
+function vowelCounter(string) {
+    let wordArray = Array.from(string.toLowerCase());
+    let count = 0;
+
+    for (let i = 0; i < wordArray.length; i++) {
+        if (wordArray[i].includes('a')) {
+            count++;
+        } else if (wordArray[i].includes('e')) {
+            count++;
+        } else if (wordArray[i].includes('i')) {
+            count++;
+        } else if (wordArray[i].includes('o')) {
+            count++;
+        } else if (wordArray[i].includes('u')) {
+            count++;
+        }
+    }
+
+    return count;
 }
 
 
